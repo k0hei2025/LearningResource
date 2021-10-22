@@ -1,24 +1,34 @@
 <template>
-  <header></header>
+  <the-header></the-header>
 
-  <button v-on:click="resourceSwapHandler('stored-resource')">
-    StoredResource
-  </button>
+  <card>
+    <button v-on:click="resourceSwapHandler('stored-resource')">
+      StoredResource
+    </button>
 
-  <button v-on:click="resourceSwapHandler('add-resource')">Add Resource</button>
+    <button v-on:click="resourceSwapHandler('add-resource')">
+      Add Resource
+    </button>
+  </card>
 
-  <component v-bind:is="storedResource" />
+  <div>
+    <keep-alive>
+      <component v-bind:is="storedResource" />
+    </keep-alive>
+  </div>
 </template>
 
 <script>
+import cardVue from './component/ux/card.vue';
 import header from './component/TheHeader.vue';
 import storedResource from './component/TheStoredResource.vue';
 import addResource from './component/TheAddResource.vue';
 export default {
   components: {
-    header: header,
+    'the-header': header,
     'stored-resource': storedResource,
-    'add-resource': addResource
+    'add-resource': addResource,
+    card: cardVue
   },
   data() {
     return {
@@ -33,4 +43,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+html {
+  font-family: sans-serif;
+}
+body {
+  margin: 0;
+}
+</style>
