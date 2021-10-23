@@ -1,16 +1,19 @@
 <template>
-  <section>
+  <div class="div">
     <slot></slot>
-  </section>
+  </div>
+  <div class="div">
+    <slot name="cardHeader"></slot>
+  </div>
 </template>
 
 <style>
-section {
+.div {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   width: 40%;
-  left: 30%;
-  top: 20vh;
-  position: fixed;
+  margin-left: 30%;
+  margin-top: 5vh;
+
   background-color: white;
   padding: 1.5rem;
   text-align: left;
